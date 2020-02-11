@@ -38,5 +38,98 @@ const siteContent = {
 };
 
 // Example: Update the img src for the logo
+
+// IMAGES START HERE
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
+
+
+let logoTwo =document.getElementById("cta-img");
+logoTwo.setAttribute('src', siteContent["cta"]["img-src"]);
+
+let logoThree = document.getElementById("middle-img");
+logoThree.setAttribute('src',siteContent["main-content"]["middle-img-src"])
+
+
+// IMAGES END HERE
+
+//  Nav starts here
+const navLinks = document.querySelectorAll("nav a");
+navLinks.forEach((link,index) => {
+
+   link.innerText = siteContent["nav"][`nav-item-${index +1}`]
+});
+
+
+
+// Nav ends here
+
+
+// BUTTON HERE
+let buttonOne = document.querySelector('button');
+buttonOne.innerText = "Get Started";
+//  console.log(buttonOne);
+//  buttonOne[0] = 'Get Started';
+// document.getElementById("button").innerHTML = "Get Started";
+
+// BUTTON END
+
+// LEFT OF IMAGE TEXT HERE
+const leftSide = document.querySelector('.cta-text');
+const leftSideH1 = leftSide.querySelector('h1');
+leftSideH1.innerText = "Dom is Awesome";
+
+// LEFT OF IMAGE TEXT END
+
+
+//main content stars here
+
+const mainContentTitles = document.querySelectorAll(".text-content h4");
+const mainContentPar = document.querySelectorAll(".text-content p");
+const titleArray = Object.keys(siteContent["main-content"]).filter(function(element){
+return element.includes('h4');
+});
+
+const parArray = Object.keys(siteContent["main-content"]).filter(function (element){
+return element.includes('content');
+});
+
+titleArray.forEach(function(title, index){
+  mainContentTitles[index].innerText = siteContent["main-content"][title];
+});
+
+parArray.forEach(function(par,index){
+  mainContentPar[index].innerText = siteContent["main-content"][par];
+});
+
+// topContent.forEach((purpledino, index) => {
+// purpledino.innerHTML = siteContent["main-content"][`${index}-h4`];
+// });
+
+
+// main content ends here
+
+
+//Contact starts here (obligatory x-files theme song)
+
+const contactTitles = document.querySelector('.contact h4');
+const contactPar = document.querySelectorAll('.contact p');
+
+contactTitles.innerText = siteContent["contact"]["contact-h4"];
+
+const contactParArray = Object.keys(siteContent['contact']).filter(function (element){
+  return !element.includes("h4"); 
+
+});
+
+contactParArray.forEach(function(par,index){
+ contactPar[index].innerText = siteContent['contact'][par];
+});
+// contact stops here
+
+
+//footer
+
+const footerPar = document.querySelector('footer p');
+
+footerPar.innerText = siteContent['footer']['copyright'];
